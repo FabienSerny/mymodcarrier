@@ -1,0 +1,1 @@
+DROP TABLE `PREFIX_mymod_carrier_cart`
