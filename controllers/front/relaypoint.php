@@ -8,6 +8,13 @@ class MyModCarrierRelayPointModuleFrontController extends ModuleFrontController
 	{
 		parent::initContent();
 
+		// Check relay point integrity
+		if (Tools::getValue('relay_point_token') != md5($this->module->name.urldecode(Tools::getValue('relay_point'))._COOKIE_KEY_))
+		{
+			echo json_encode('Error');
+			exit;
+		}
+
 		// Retrieve relay point cart association
 		$id_cart = (int)$this->context->cookie->id_cart;
 		$relaypoint = MyModCarrierRelayPoint::getRelayPointByCartId($id_cart);

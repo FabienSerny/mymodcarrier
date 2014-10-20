@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>mymodcarrier</name>
+	<displayName><![CDATA[MyMod carrier]]></displayName>
+	<version><![CDATA[0.1]]></version>
+	<description><![CDATA[A simple carrier module]]></description>
+	<author><![CDATA[Fabien Serny]]></author>
+	<tab><![CDATA[shipping_logistics]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

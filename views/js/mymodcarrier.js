@@ -40,7 +40,7 @@ function mymodcarrier_relaypoint_selection()
 			$.ajax({
 				type: "POST",
 				url: mymodcarrier_ajax_link,
-				data: { relay_point: $(this).val() },
+				data: { relay_point: $(this).val(), relay_point_token: $(this).attr('data-token') },
 				context: document.body
 			});
 		}

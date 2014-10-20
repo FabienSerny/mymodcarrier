@@ -12,9 +12,18 @@ class MyModCarrierGetOrderShippingCostController
 
 	public function getDeliveryService()
 	{
+		// If Cache exists, we return it
+		$cache_key = md5($this->module->name.'.getDeliveryService.'.$this->city);
+		if ($result = Cache::getInstance()->get($cache_key))
+			return json_decode($result, true);
+
 		$url = 'http://localhost/api/index.php';
 		$params = '?mca_email='.Configuration::get('MYMOD_CA_EMAIL').'&mca_token='.Configuration::get('MYMOD_CA_TOKEN').'&method=getShippingCost&city='.$this->city;
 		$result = json_decode(file_get_contents($url.$params), true);
+
+		// Cache result
+		Cache::getInstance()->set($cache_key, json_encode($result));
+
 		return $result;
 	}
 
