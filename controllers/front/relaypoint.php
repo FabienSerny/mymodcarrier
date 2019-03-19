@@ -22,7 +22,7 @@ class MyModCarrierRelayPointModuleFrontController extends ModuleFrontController
 		// Add / update relay point cart association
 		$relaypoint->id_cart = $id_cart;
 		$relaypoint->relay_point = urldecode(Tools::getValue('relay_point'));
-		if ($relaypoint->id > 0)
+		if ($relaypoint->id_mymod_carrier_cart > 0)
 			$relaypoint->update();
 		else
 			$relaypoint->add();
